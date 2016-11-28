@@ -15,9 +15,21 @@
     <!--</t>-->
 
     <!-- tested: ok 9.0 EE -->
+    <t t-extend="Application.switcher">
+        <t t-jquery="div a.o_action_app">
+            this.attr('t-att-data-bt-testing-sub-menu_id', 'second_level_menu.name');
+        </t>
+    </t>
+
     <t t-extend="Menu.sections">
         <t t-jquery="li a.dropdown-toggle">
-            this.attr('t-att-data-bt-testing-sub-menu_id', 'second_level_menu.id');
+            this.attr('t-att-data-bt-testing-sub-menu_id', 'second_level_menu.name');
+        </t>
+    </t>
+
+    <t t-extend="Menu.sections">
+        <t t-jquery="li ul li a.o_menu_entry_lvl_2">
+            this.attr('t-att-data-bt-testing-sub-menu_id', 'second_level_menu.name');
         </t>
     </t>
 
