@@ -5,7 +5,7 @@
 {
     "name": "Web Selenium",
     "summary": "Record your testcases with Selenium",
-    "version": "9.0.1.0.1",
+    "version": "9.0.1.0.2",
     "category": "Hidden",
     "website": "http://www.brain-tec.ch",
     "author": "Andreas Stauder <andreas.stauder@brain-tec.ch>",
