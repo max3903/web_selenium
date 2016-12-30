@@ -2,47 +2,30 @@
 <!-- vim:fdl=1: -->
 <templates id="template" xml:space="preserve">
 
-
-    <!--<t t-extend="Login">-->
-        <!--<t t-jquery="input[name='name']" t-operation="append">-->
-            <!--<t t-att-value="widget.selected_login || ''" />-->
-        <!--</t>-->
-
-        <!--<t t-jquery="input[name='name']" t-operation="append">-->
-            <!--<t t-att-value="widget.selected_password || ''" />-->
-        <!--</t>-->
-
-    <!--</t>-->
-
     <!-- tested: ok 9.0 EE -->
     <t t-extend="AppSwitcher">
         <t t-jquery="div a">
-            this.attr('t-att-data-testing-menu', 'primary_menu.name');
+            this.attr('t-att-data-bt-testing-menu', 'primary_menu.name');
         </t>
     </t>
 
     <t t-extend="Menu.sections">
         <t t-jquery="li a.dropdown-toggle">
-            this.attr('t-att-data-testing-sub-menu', 'second_level_menu.name');
+            this.attr('t-att-data-bt-testing-sub-menu', 'second_level_menu.name');
         </t>
     </t>
 
     <t t-extend="Menu.link">
         <t t-jquery="li a">
-            this.attr('t-att-data-testing-sub-sub-menu', 'menu.name');
+            this.attr('t-att-data-bt-testing-sub-sub-menu', 'menu.name');
         </t>
     </t>
-
-<!--
-            this.attr('t-att-data-bt-testing-model_name', 'widget and widget.getParent and widget.getParent().view and widget.getParent().view.fields_view.model');
-            this.attr('t-att-data-bt-testing-name', 'this.widget and widget.getParent and widget.getParent().name');
--->
 
     <!-- tested: ok -->
     <t t-extend="ViewManager">
         <t t-jquery="div.oe-view-manager-content">
             this.attr('data-batomo', 'my');
-            this.attr('t-att-data-bt-testing-model_name', 'widget and widget.getParent and widget.getParent().view and widget.getParent().view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget and widget.getParent and widget.getParent().view and widget.getParent().view.model');
             this.attr('t-att-data-bt-testing-name', 'widget and widget.getParent and widget.getParent().name');
             this.attr('t-att-data-bt-testing-submodel_name', 'widget.model');
         </t>
@@ -56,7 +39,6 @@
             this.attr('t-att-data-bt-testing-submodel_name', 'widget.model');
         </t>
     </t>
-
 
     <t t-extend="ListView.buttons">
         <!-- tested: ok 9.0 EE -->
@@ -112,7 +94,7 @@
     <t t-extend="FieldChar">
         <t t-jquery="input">
             this.attr('t-att-data-bt-testing-name', 'widget.name');
-            this.attr('t-att-data-bt-testing-model_name', 'widget.view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget.view.model');
         </t>
     </t>
 
@@ -120,7 +102,7 @@
     <t t-extend="FieldMonetary">
         <t t-jquery="input">
             this.attr('t-att-data-bt-testing-name', 'widget.name');
-            this.attr('t-att-data-bt-testing-model_name', 'widget.view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget.view.model');
         </t>
     </t>
 
@@ -129,7 +111,7 @@
     <t t-extend="FieldEmail">
         <t t-jquery="input">
             this.attr('t-att-data-bt-testing-name', 'widget.name');
-            this.attr('t-att-data-bt-testing-model_name', 'widget.view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget.view.model');
         </t>
     </t>
 
@@ -137,7 +119,7 @@
     <t t-extend="FieldText">
         <t t-jquery="textarea">
             this.attr('t-att-data-bt-testing-name', 'widget.name');
-            this.attr('t-att-data-bt-testing-model_name', 'widget.view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget.view.model');
         </t>
     </t>
 
@@ -153,7 +135,7 @@
     <t t-extend="FieldSelection">
         <t t-jquery="select">
             this.attr('t-att-data-bt-testing-name', 'widget.name');
-            this.attr('t-att-data-bt-testing-model_name', 'widget and widget.view and widget.view.fields_view and widget.view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget and widget.view and widget.view.fields_view.model');
         </t>
 
         <t t-jquery="select option">
@@ -161,7 +143,7 @@
 	    <!-- When the field is selection take the tecnical value to be language independend. 
 		 If it is a many2one field, take the name of the field instead of the id. It's better to be database independend than language independend
 	    -->
-            this.attr('t-att-data-bt-testing-value', "widget.field.type === 'many2one' ? option[1] : option[0]");
+        this.attr('t-att-data-bt-testing-value', "widget.field.type === 'many2one' ? option[1] : option[0]");
         </t>
     </t>
 
@@ -169,7 +151,7 @@
     <t t-extend="FieldMany2One">
         <t t-jquery="input[type='text']">
             this.attr('t-att-data-bt-testing-name', 'widget.name');
-            this.attr('t-att-data-bt-testing-model_name', 'widget.view and widget.view.fields_view and widget.view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget.view.model');
         </t>
     </t>
 
@@ -177,7 +159,7 @@
     <t t-extend="FieldMany2ManyTags">
         <t t-jquery="div.o_form_field_many2manytags">
             this.attr('t-att-data-bt-testing-name', 'widget.name');
-            this.attr('t-att-data-bt-testing-model_name', 'widget.view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget.view.model');
         </t>
     </t>
 
@@ -185,7 +167,7 @@
     <t t-extend="FieldBoolean">
         <t t-jquery="div.o_form_field_boolean input[type='checkbox']">
             this.attr('t-att-data-bt-testing-name', 'widget.name');
-            this.attr('t-att-data-bt-testing-model_name', 'widget.view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget.view.model');
         </t>
     </t>
 
@@ -193,7 +175,7 @@
     <t t-extend="FieldBinaryFile">
         <t t-jquery="input.field_binary">
             this.attr('t-att-data-bt-testing-name', 'widget.name');
-            this.attr('t-att-data-bt-testing-model_name', 'widget.view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget.view.model');
         </t>
     </t>
 
@@ -206,13 +188,11 @@
         </t>
     </t>
 
-
-
     <!-- adapted, but not tested: 9.0 EE -->
     <t t-extend="FieldRadio">
         <t t-jquery="input.o_form_radio">
             this.attr('t-att-data-bt-testing-name', 'widget.name');
-            this.attr('t-att-data-bt-testing-model_name', 'widget.view.fields_view.model');
+            this.attr('t-att-data-bt-testing-model_name', 'widget.view.model');
         </t>
     </t>
     -->
